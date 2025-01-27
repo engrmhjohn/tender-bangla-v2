@@ -253,6 +253,36 @@ $districts = \App\Models\District::orderBy('district_name', 'asc')->get();
                     </div>
                     <div class="card">
                         <div class="card-header">
+                            <div class="card-title">Edit Whatsapp</div>
+                        </div>
+                        <form action="{{ route('update_user_whatsapp_by_admin') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $user->id }}">
+                            <div class="card-body">
+                                @if ($errors->has('whatsapp'))
+                                <div class="alert alert-danger" role="alert">
+                                    <ul>
+                                        <li>{{ $errors->first('whatsapp') }}</li>
+                                    </ul>
+                                </div>
+                                @endif
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="exampleInputnumber">Whatsapp Number</label>
+                                            <input type="number" class="form-control" id="exampleInputnumber" name="whatsapp" placeholder="Whatsapp number" value="{{ $user->whatsapp }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-end">
+                                <button type="submit" class="btn btn-cyan"> <i class="fa fa-check"></i> Change
+                                    Whatsapp</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
                             <div class="card-title">Edit Payment Record</div>
                         </div>
                         <form action="{{ route('save_payment_verification') }}" method="post" enctype="multipart/form-data">

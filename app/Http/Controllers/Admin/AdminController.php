@@ -111,6 +111,18 @@ class AdminController extends Controller
         return redirect()->back()->with('message', 'User Phone Successfully Updated!');
     }
 
+    public function updateUserWhatsappByAdmin(Request $request)
+    {
+        $request->validate([
+            'whatsapp' => 'required|string|unique:users,whatsapp',
+        ]);
+
+        $user_info               = User::find($request->id);
+        $user_info->whatsapp = $request->whatsapp;
+        $user_info->save();
+        return redirect()->back()->with('message', 'User Whatsapp Successfully Updated!');
+    }
+
     public function updateUserEmailByAdmin(Request $request)
     {
         $request->validate([

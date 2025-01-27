@@ -67,6 +67,7 @@ Route::middleware(['superAdmin'])->group(function () {
         // users info modified by Super Admin 
         Route::post('/update-user-name-by-admin', 'updateUserNameByAdmin')->name('update_user_name_by_admin');
         Route::post('/update-user-phone-by-admin', 'updateUserPhoneByAdmin')->name('update_user_phone_by_admin');
+        Route::post('/update-user-whatsapp-by-admin', 'updateUserWhatsappByAdmin')->name('update_user_whatsapp_by_admin');
         Route::post('/update-user-email-by-admin', 'updateUserEmailByAdmin')->name('update_user_email_by_admin');
         Route::post('/update-user-photo-by-admin', 'updateUserPhotoByAdmin')->name('update_user_photo_by_admin');
         Route::post('/update-user-password-by-admin', 'updateUserPasswordByAdmin')->name('update_user_password_by_admin');
