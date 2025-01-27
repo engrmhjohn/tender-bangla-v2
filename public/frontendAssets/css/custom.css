@@ -1,0 +1,165 @@
+body{
+    font-family: "Anek Bangla", sans-serif;                                       
+}
+.logo {
+    max-width: 200px;
+}
+
+.menu {
+    background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
+}
+
+.menu_icon {
+    height: 40px;
+    width: 40px;
+    display: none;
+}
+
+.navbar {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.custom_offcanvas {
+    max-width: 90% !important;
+}
+
+.custom_offcanvas .offcanvas-header {
+    background: transparent;
+    background-image: none;
+    background-image: linear-gradient(301deg, #f72e1f 0%, #000000 100%);
+    color: white;
+}
+
+.custom_offcanvas .offcanvas-header button {
+    border: 2px solid white !important;
+}
+
+.custom_offcanvas .offcanvas-body {
+    padding: 0px !important;
+}
+
+.mobile_menu_header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 0.6px solid rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
+}
+
+.mobile_menu_header .logo{
+    max-width: 200px;
+}
+/* General styling for mobile_nav */
+.mobile_nav {
+    background-color: #f0efff; /* Light background color */
+    padding: 20px; /* Padding around the navigation */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for each menu section */
+.mobile_side_menu_section {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 15px 0; /* Spacing between menu sections */
+}
+
+.mobile_side_menu_section li {
+    margin-bottom: 10px; /* Space between each menu item */
+}
+
+/* Styling for menu links */
+.mobile_side_menu_section li a {
+    display: block;
+    padding: 12px 20px;
+    background-color: #ffffff; /* White background for menu items */
+    color: #6c63ff; /* Text color */
+    font-size: 16px;
+    font-weight: 600; /* Slightly bolder text */
+    text-decoration: none;
+    border-radius: 6px; /* Rounded corners for items */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for menu links */
+.mobile_side_menu_section li a:hover {
+    background-color: #6c63ff; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
+}
+
+/* Active menu item styling */
+.mobile_side_menu_section li a.active {
+    background-color: #6c63ff; /* Active item background color */
+    color: #ffffff; /* Active item text color */
+}
+.mobile_credentials_btn{
+    display: none;
+}
+@media (max-width: 576px) {
+    .mobile_credentials_btn{
+        display: block;
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mobile_nav {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .mobile_side_menu_section li a {
+        font-size: 15px; /* Adjust font size for smaller screens */
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+.intro-section {
+    /* background: linear-gradient(to right, #f0efff, #e8e7f8); */
+    /* padding: 10rem 0 0 0; */
+    width: 100%;
+    height: 100%;
+}
+
+@media(max-width: 991px) {
+    .menu_icon {
+        display: block;
+    }
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #b62feb;
+    color: #fff;
+    padding: 8px 0;
+    position: relative;
+}
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+.marquee-item {
+    display: inline-block;
+    margin: 0 30px;
+    font-size: 18px;
+}
+/* .marquee-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.marquee-item a:hover {
+    color: #ffdd57;
+} */
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

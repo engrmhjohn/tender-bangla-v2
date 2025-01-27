@@ -1,0 +1,174 @@
+.btn-rounded {
+    position: relative;
+    padding: 0.8375rem 3.375rem 0.8375rem 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    border: 0.1rem solid rgba(255, 255, 255, 0.6);
+    background-color: #fff;
+    display: block;
+}
+
+.btn-rounded span {
+    position: absolute;
+    background-color: #9926f0;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-rounded span i {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 2.5rem;
+}
+
+.btn-rounded:hover {
+    background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
+    color: #fff;
+}
+
+.btn-rounded2 {
+    position: relative;
+    padding: 0.8375rem 3.375rem 0.8375rem 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    border: 0.1rem solid rgba(255, 255, 255, 0.6);
+    border-top-color: rgba(255, 255, 255, 0.6);
+    border-right-color: rgba(255, 255, 255, 0.6);
+    border-bottom-color: rgba(255, 255, 255, 0.6);
+    border-left-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
+    color: #fff;
+}
+
+.rounded-pill2 {
+    border-radius: 50rem !important;
+}
+
+a,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+.btn-rounded2 span {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-rounded2 span i {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 2.5rem;
+}
+
+.btn-rounded2:hover {
+    background: linear-gradient(to right, rgba(244, 243, 245, 0.95), rgba(251, 250, 252, 0.95));
+    color: black;
+}
+
+.btn-rounded2:hover span {
+    background-color: #9926f0;
+}
+
+.landing-statistics .card {
+    background-color: transparent;
+    border: none;
+}
+
+.landing-statistics .card-body {
+    border-radius: 50px 50px 0 50px;
+}
+
+.landing-statistics .counter-icon {
+    border-radius: 50px 50px 0 50px !important;
+}
+
+.services-statistics .counter-icon i {
+    font-size: 42px;
+}
+
+.bg-primary-transparent {
+    background-color: rgba(108, 95, 252, 0.1);
+}
+
+.services-statistics .counter-icon {
+    margin-block-end: 1.5rem;
+    margin-block-start: 14px;
+    display: inline-flex;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+/* Custom Scrollbar Styles */
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    /* Makes the scrollbar thinner */
+    scrollbar-color: #8f54a0 #ffffff;
+    /* Thumb color and track color */
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+    /* Slimmer scrollbar width */
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+    /* Track background color */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8f54a0;
+    /* Thumb color */
+    border-radius: 10px;
+    /* Rounded corners */
+    border: 2px solid #ffffff;
+    /* Slimmer border around the thumb */
+}
+
+.gradient {
+    background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
+}
+
+.heading-line::before {
+    content: "";
+    width: 10rem;
+    height: 0.1rem;
+    display: block;
+    margin: 0 auto;
+    background-color: #9926f0;
+}
+
+.heading-line::after {
+    content: "";
+    width: 2rem;
+    padding-top: 0.5rem;
+    height: 0.2rem;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    background-color: #9926f0;
+}
+
+.mobile_credentials_btn{
+    margin-top: 73px;
+}
