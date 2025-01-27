@@ -283,4 +283,64 @@ class MemberController extends Controller
 
         return redirect(route('manage_payment_verification'))->with('message', 'Payment info deleted successfully.');
     }
+
+    public function editMemberPaymentInfo($id)
+    {
+        $payment = PaymentVerification::findOrFail($id);
+        return view('backend.admin.payment_verification.edit-member-payment-info', compact('payment'));
+    }
+
+    public function updateMemberPaymentInfo(Request $request)
+    {
+        $request->validate([
+            'gateway_name' => 'required|string|max:255',
+            'account_validity' => 'required|date',
+            'sender_number' => 'required|string|max:20',
+            'transaction_number' => 'required|string|max:50',
+            'amount' => 'required|numeric|min:0',
+        ]);
+
+        // Find the existing PaymentVerification record by id
+        $payment               = PaymentVerification::find($request->payment_info_id);
+
+        if (!$payment) {
+            // If the record doesn't exist, redirect with an error
+            return redirect()->back()->with('error', 'Payment Info not found.');
+        }
+
+        // Update the PaymentVerification record with new data
+        $payment->update([
+            'member_id' => $request->member_id,
+            'gateway_name' => $request->gateway_name,
+            'sender_number' => $request->sender_number,
+            'transaction_number' => $request->transaction_number,
+            'amount' => $request->amount,
+            'account_validity' => $request->account_validity,
+        ]);
+
+        // Update the User's account_validity if necessary
+        $user = User::find($payment->member_id);
+        if ($user) {
+            $user->account_validity = $payment->account_validity;
+            $user->save();
+        }
+
+        $payment->update([
+            'gateway_name' => $request->gateway_name,
+            'account_validity' => $request->account_validity,
+            'sender_number' => $request->sender_number,
+            'transaction_number' => $request->transaction_number,
+            'amount' => $request->amount,
+        ]);
+
+        return redirect()->route('edit_admin', $payment->member_id)->with('message', 'Payment verification and account validity updated successfully.');
+    }
+
+    public function deleteMemberPaymentInfo(Request $request)
+    {
+        $payment = PaymentVerification::findOrFail($request->payment_info_id);
+        $payment->delete();
+
+        return redirect()->back()->with('message', 'Payment information deleted successfully.');
+    }
 }

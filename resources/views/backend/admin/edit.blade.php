@@ -56,12 +56,12 @@ $districts = \App\Models\District::orderBy('district_name', 'asc')->get();
                                                 <td>{{ $item->amount }}</td>
                                             <td name="bstable-actions">
                                                 <div class="btn-list d-flex justify-content-center" style="gap: 10px;">
-                                                    <a href="{{ route('edit_payment_verification', $item->id) }}"><button class="btn btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit"><span class="fe fe-edit fs-14"></span>
+                                                    <a href="{{ route('edit_member_payment_info', $item->id) }}"><button class="btn btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit"><span class="fe fe-edit fs-14"></span>
                                                         </button></a>
-                                                    <form action="{{ route('delete_payment_verification') }}" method="post" id="delete">
+                                                    <form action="{{ route('delete_member_payment_info') }}" method="post" id="delete">
                                                         @method('delete')
                                                         @csrf
-                                                        <input type="hidden" name="important_notice_id" value="{{ $item->id }}">
+                                                        <input type="hidden" name="payment_info_id" value="{{ $item->id }}">
                                                         <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');" type="submit" data-bs-toggle="tooltip" data-bs-original-title="Delete"> <span class="fe fe-trash-2"> </span></button>
                                                     </form>
                                             </td>

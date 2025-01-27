@@ -144,6 +144,10 @@ Route::middleware(['superAdmin'])->group(function () {
         Route::get('/preview-member/{id}', 'previewMember')->name('preview_member');
         Route::delete('/delete-member/{id}', 'deleteMember')->name('delete_member');
 
+        Route::get('/edit-member-payment-info/{id}', 'editMemberPaymentInfo')->name('edit_member_payment_info');
+        Route::post('/update-member-payment-info', 'updateMemberPaymentInfo')->name('update_member_payment_info');
+        Route::delete('/delete-member-payment-info', 'deleteMemberPaymentInfo')->name('delete_member_payment_info');
+
         // Member info modified by Super Admin 
         Route::post('/update-member-name-by-admin', 'updateMemberNameByAdmin')->name('update_member_name_by_admin');
         Route::post('/update-member-phone-by-admin', 'updateMemberPhoneByAdmin')->name('update_member_phone_by_admin');
