@@ -190,15 +190,6 @@ class AdminController extends Controller
 
     public function updateUserTenderAreaByAdmin(Request $request)
     {
-        // Validate that district_id is an array with custom error messages
-        $request->validate([
-            'district_id' => 'required|array', // Ensure that it is an array
-            'district_id.*' => 'exists:districts,id', // Validate that each district ID exists in the districts table
-        ], [
-            'district_id.required' => 'Please select at least one district.',
-            'district_id.array' => 'Invalid input format for districts.',
-            'district_id.*.exists' => 'One or more selected districts do not exist in the system.',
-        ]);
         // Find the user by the ID passed in the request
         $user_info = User::find($request->id);
 

@@ -238,8 +238,15 @@ $total_pending_count = $total_pending->count();
             @else
             <div class="col-lg-12 mb-3">
                 <div class="alert alert-info" role="alert">
-                    আপনি দেখছেন <strong>{{ $districtNames->implode(', ') }} জেলার টেন্ডার।</strong>
-                </div>
+                    আপনি দেখছেন <strong>
+                        @if($userDistrictIds == ['all'])
+                            সব
+                        @else
+                            {{ $districtNames->implode(', ') }}
+                        @endif
+                        জেলার টেন্ডার।
+                    </strong>
+                </div>
             </div>
             @foreach($tenders as $tender)
             <div class="col-xl-4 col-lg-4 col-md-6 mb-3">

@@ -21,25 +21,34 @@ class CMSController extends Controller
 
     public function dashboard()
     {
+        // Get the user's selected district IDs from the database (it's stored as a JSON array)
         $userDistrictIds = json_decode(auth()->user()->district_id);
     
         // Fetch tenders filtered by user's districts, tender type 1, and tender validity
-        $tenders = Tender::with(['subCategory', 'district']) // Load related subCategory and district
-            ->whereIn('district_id', $userDistrictIds) // Filter by user's districts
+        $tendersQuery = Tender::with(['subCategory', 'district']) // Load related subCategory and district
             ->where('tender_type', 1) // Filter for tender type 1
             ->where(function ($query) {
                 $query->where('tender_validity', '>=', Carbon::today()) // Future tenders
                       ->orWhereRaw("DATE_ADD(tender_validity, INTERVAL 7 DAY) >= ?", [Carbon::today()]); // Expired tenders within 7 days
             })
             ->orderBy('id', 'desc') // Order by latest tenders
-            ->select('link_name', 'id', 'created_at', 'sub_category_id', 'tender_validity', 'district_id') // Include district_id for relation
-            ->get();
+            ->select('link_name', 'id', 'created_at', 'sub_category_id', 'tender_validity', 'district_id'); // Include district_id for relation
+    
+        // Check if the user selected "All" districts or specific districts
+        if ($userDistrictIds !== null && $userDistrictIds !== ['all']) {
+            // If the user selected specific districts, filter by those districts
+            $tendersQuery->whereIn('district_id', $userDistrictIds);
+        }
+    
+        // Execute the query to get tenders
+        $tenders = $tendersQuery->get();
     
         // Fetch district names for display in the view
         $districtNames = District::whereIn('id', $userDistrictIds)->pluck('district_name');
         $package_info = PackageInfo::orderBy('id', 'desc')->first();
     
-        return view('backend.home.index', compact('tenders', 'districtNames', 'package_info'));
+        // Pass the $userDistrictIds to the view as well
+        return view('backend.home.index', compact('tenders', 'districtNames', 'package_info', 'userDistrictIds'));
     }
     
 

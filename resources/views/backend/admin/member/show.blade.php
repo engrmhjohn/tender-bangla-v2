@@ -78,6 +78,7 @@ CMS :: Member Add
                                 <label class="form-label">Tender Preferred Area*</label>
                                 <select class="form-control select2-show-search form-select" name="district_id[]" data-placeholder="Select Area" multiple>
                                     <option label="Select Area"></option>
+                                    <option value="all" {{ old('district_id') == 'all' ? 'selected' : '' }}>All</option>
                                     @foreach ($districts as $item)
                                     <option value="{{ $item->id }}" {{ old('district_id') == $item->id ? 'selected' : '' }}>
                                         {{ $item->district_name }}

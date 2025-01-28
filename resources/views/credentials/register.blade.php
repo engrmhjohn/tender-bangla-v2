@@ -335,6 +335,7 @@
             </div>
             <select id="district" name="district_id[]" multiple required>
                 <option value="">Select areas</option>
+                <option value="all" {{ old('district_id') == 'all' ? 'selected' : '' }}>All</option>
                 @foreach ($districts as $district)
                 <option value="{{ $district->id }}" {{ (collect(old('district_id'))->contains($district->id)) ?
                     'selected' : '' }}>

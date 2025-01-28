@@ -173,6 +173,7 @@ $districts = \App\Models\District::orderBy('district_name', 'asc')->get();
                                         <div class="form-group">
                                             <label class="form-label">Select Areas</label>
                                             <select class="form-control select2" data-placeholder="Choose Areas" name="district_id[]" multiple>
+                                                <option value="all" {{ in_array('all', old('district_id', json_decode($user->district_id, true) ?? [])) ? 'selected' : '' }}>All</option>
                                                 @foreach ($districts as $district)
                                                 <option value="{{ $district->id }}" @if (in_array($district->id, $selectedDistricts)) selected @endif>
                                                     {{ $district->district_name }}
