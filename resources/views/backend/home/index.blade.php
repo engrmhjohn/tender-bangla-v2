@@ -264,7 +264,11 @@ $total_pending_count = $total_pending->count();
                             <div class="right_div">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('preview_tender', $tender->id) }}" class="card-link">{{ $tender->link_name }}@if($tender->district)
+                                        <a href="{{ route('preview_tender', $tender->id) }}" class="card-link">{{ $tender->link_name }}
+                                            @if($tender->tender_validity < now())
+                                        <span class="text-dark fw-bold">(Expired)</span>
+                                        @endif
+                                            @if($tender->district)
                                            <strong class="text-danger fw-bold">({{ $tender->district->district_name }})</strong>
                                         @endif 
                                             @if($tender->created_at >= now()->subDays(3))

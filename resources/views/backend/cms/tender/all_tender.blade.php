@@ -190,7 +190,8 @@ CMS :: Tender
                                 @foreach($subCategory->tenders->where('tender_type', 1) as $tender)
                                 <!-- Only show paid tenders -->
                                 <a href="{{ route('preview_tender', $tender->id) }}" class="tender-link">
-                                    {{ $loop->iteration }}. {{ $tender->link_name }} | <strong class="text-danger fw-bold">{{ $tender->district->district_name ?? 'Not Found' }} </strong>
+                                    {{ $loop->iteration }}. {{ $tender->link_name }} @if($tender->tender_validity < now()) <span class="text-dark fw-bold">(Expired)</span>
+                                    @endif | <strong class="text-danger fw-bold">{{ $tender->district->district_name ?? 'Not Found' }} </strong>
                                     @if($tender->created_at >= now()->subDays(3))
                                     <img src="{{ asset('frontendAssets') }}/images/new_flashing.gif" alt="New">
                                     @endif

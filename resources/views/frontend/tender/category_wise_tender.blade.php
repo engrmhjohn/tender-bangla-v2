@@ -64,7 +64,10 @@
                             <div class="right_div">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('preview_front_tender', $tender->id) }}" class="card-link">{{ $tender->link_name }} 
+                                        <a href="{{ route('preview_front_tender', $tender->id) }}" class="card-link">{{ $tender->link_name }}  
+                                            @if($tender->tender_validity < now())
+                                            <span class="text-danger fw-bold">(Expired)</span>
+                                            @endif
                                         @if($tender->created_at >= now()->subDays(3))
                                             <img src="{{ asset('frontendAssets') }}/images/new_flashing.gif" alt="New">
                                         @endif
