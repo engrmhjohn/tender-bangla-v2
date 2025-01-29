@@ -123,7 +123,7 @@
                                                 @foreach($subCategory->tenders->where('tender_type', 0) as $tender)
                                                     <a href="{{ route('preview_front_tender', $tender->id) }}" class="tender-link">
                                                         <i class="fas fa-caret-right"></i>
-                                                        {{ $tender->link_name }} | {{ $tender->district->district_name ?? 'Not Found' }}
+                                                        {{ $tender->link_name }} | <strong>{{ $tender->district->district_name ?? 'Not Found' }}</strong>
                                                         @if($tender->created_at >= now()->subDays(3))
                                                             <img src="{{ asset('frontendAssets') }}/images/new_flashing.gif" alt="New">
                                                         @endif

@@ -176,6 +176,9 @@ CMS :: Preview Tender
                 <small> <strong>Posted On: </strong> {{ \Carbon\Carbon::parse($tender->created_at)->format('d F Y') }}</small>
             </div>
             <div class="col-12 d-flex justify-content-center">
+                <small> <strong>District: </strong> {{ $tender->district->district_name ?? 'Not Found' }}</small>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
                 <small> <strong>Tender Deadline:</strong> {{ \Carbon\Carbon::parse($tender->tender_validity)->format('d F Y') }}</small>
             </div>
         </div>

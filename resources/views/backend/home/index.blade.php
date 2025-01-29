@@ -265,7 +265,7 @@ $total_pending_count = $total_pending->count();
                                 <div class="row">
                                     <div class="col-12">
                                         <a href="{{ route('preview_tender', $tender->id) }}" class="card-link">{{ $tender->link_name }}@if($tender->district)
-                                            ({{ $tender->district->district_name }})
+                                           <strong class="text-danger fw-bold">({{ $tender->district->district_name }})</strong>
                                         @endif 
                                             @if($tender->created_at >= now()->subDays(3))
                                             <img src="{{ asset('frontendAssets') }}/images/new_flashing.gif" alt="New">
