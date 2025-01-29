@@ -28,7 +28,7 @@
                         @if($tender->tender_validity < now())
                         <span class="text-warning fw-bold">(Expired)</span>
                         @endif
-                        @if($tender->created_at >= now()->subDays(3))
+                        @if($tender->created_at >= now()->subDays(1))
                         <img src="{{ asset('frontendAssets') }}/images/new_flashing.gif" alt="New">
                         @endif
                     </a>

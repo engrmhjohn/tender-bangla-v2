@@ -25,7 +25,7 @@
                 <div class="col-9">
                     <a href="{{ route('preview_tender', $tender->id) }}" class="tender-link">
                         <i class="fa fa-file-image-o"></i> {{ $tender->link_name }} <br>
-                        @if($tender->created_at >= now()->subDays(3))
+                        @if($tender->created_at >= now()->subDays(1))
                         <img src="{{ asset('frontendAssets') }}/images/new_flashing.gif" alt="New">
                         @endif
                     </a>
